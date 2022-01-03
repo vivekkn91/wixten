@@ -15,20 +15,20 @@ export default function question() {
     });
   }, []);
 
-  
-
   return (
     <div>
-      <Alert className="question13">ddsd</Alert>
       {/* {console.log(Items)} */}
-      {Items.map((itm)  => ( 
-          <Link href={{
-    pathname: `/query/[id]`,
-    query: {
-      id: itm._id,
-    },
-  }}>
-        <Alert className="question13">{itm.Name}</Alert>
+      {Items.map((itm) => (
+        <Link
+          href={{
+            pathname: "query/[itm]",
+            // query: { id: itm.id },
+          }}
+          as={`query/${encodeURIComponent(itm._id)}`}
+        >
+          {/* <Link href={`/query/${encodeURIComponent(itm._id)}`}> */}
+
+          <Alert className="question13">{itm.Name}</Alert>
         </Link>
       ))}
     </div>
