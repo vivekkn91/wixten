@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import Link from "next/link";
 import Head from "next/head";
 
-export default function question() {
+export default function Question() {
   const [Items, setItems] = useState([]);
   useEffect(() => {
     axios.get("https://ask-over.herokuapp.com/questapi").then((result) => {
@@ -18,8 +18,9 @@ export default function question() {
   return (
     <div>
       {/* {console.log(Items)} */}
-      {Items.map((itm) => (
+      {Items.map((itm, k) => (
         <Link
+          key={itm._id}
           href={{
             pathname: "query/[itm]",
             // query: { id: itm.id },

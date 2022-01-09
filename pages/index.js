@@ -22,7 +22,7 @@ export default function home() {
             <FormControl
               placeholder="ask anything?"
               aria-label="ask anything?"
-              aria-label="ask anything?"
+              // aria-label="ask anything?"
               aria-describedby="basic-addon2"
             />
             <Button

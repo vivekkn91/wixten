@@ -11,7 +11,7 @@ import ReactDOM from "react-dom";
 
 // import Signin from "./signin";
 // import Sites from "./Sites";
-import home from "./home";
+// import home from "./home";
 import { useState } from "react";
 import Nav from "react-bootstrap/Nav";
 import { Container } from "react-bootstrap";
@@ -22,7 +22,7 @@ export default function index() {
     <div className="App">
       <Navbar bg="primary" variant="dark">
         <Container>
-          <Link href="/">
+          <Link href="/" passHref>
             <Navbar.Brand to="/">
               <h1 className="logomain">wixten</h1>
             </Navbar.Brand>

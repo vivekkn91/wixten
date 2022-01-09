@@ -6,7 +6,7 @@ import React from "react";
 import { FormControl, Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
 
-export default function query() {
+export default function Query() {
   const [Item, setItem] = useState([]);
   const router = useRouter();
   var id = router.query.itmid;
@@ -59,7 +59,7 @@ export default function query() {
           <FormControl
             placeholder="answer this question"
             aria-label="answer this question"
-            aria-label="answer this question"
+            // aria-label="answer this question"
             aria-describedby="basic-addon2"
           />
           <Button
