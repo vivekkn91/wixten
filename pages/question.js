@@ -18,7 +18,7 @@ export default function Question() {
   return (
     <div>
       {/* {console.log(Items)} */}
-      {Items.map((itm, k) => (
+      {Items.reverse().map((itm, k) => (
         <Link
           key={itm._id}
           href={{

@@ -48,6 +48,9 @@ a {
 a {
   text-decoration: none;
 }
+.answersize {
+  font-size: 1.2rem;
+}
 
 .card-body {
   border-radius: 50px;

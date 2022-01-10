@@ -5,14 +5,33 @@ import Answershooks from "./Answerhooks";
 import React from "react";
 import { FormControl, Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
-
+import Head from "next/head";
 export default function Query() {
   const [Item, setItem] = useState([]);
+  const [Questions, setQuestions] = useState();
   const router = useRouter();
   var id = router.query.itmid;
   var gotid = id;
   console.log(id);
+  function question(e) {
+    setQuestions(e.target.value);
+    // this.setState({ ask: e.target.value });
+  }
 
+  function clickQuestion() {
+    axios
+      .post("https://ask-over.herokuapp.com/answerpost", {
+        Answers: Questions,
+
+        correctcount: 0,
+        wrongcount: 0,
+
+        question_id: gotid,
+      })
+      .then(() => {
+        window.location.reload();
+      });
+  }
   useEffect(() => {
     if (id != null) {
       axios
@@ -32,6 +51,14 @@ export default function Query() {
         {Item.map((itm, k) => {
           return (
             <>
+              <Head>
+                <title>wixten - {itm.Name} </title>
+                <meta
+                  name="viewport"
+                  content="initial-scale=1.0, width=device-width"
+                />
+                <meta name="description" content={itm.Name} />
+              </Head>
               {/* <Helmet>
                 <meta charSet="utf-8" />
                 <title> wixten - {itm.Name} </title>
@@ -40,7 +67,7 @@ export default function Query() {
                 <link rel="canonical" href={itm.Name} />
               </Helmet> */}
               <div key={itm._id} className="Question-one">
-                <h2> {itm.Name}</h2>
+                <h1> {itm.Name}</h1>
               </div>
               <div className="username">
                 <span className="username2">--{itm.username}</span>
@@ -53,7 +80,7 @@ export default function Query() {
       <div className="container search-box">
         <InputGroup
           className="mb-3"
-          //  onChange={this.question}
+          onChange={question}
           // value={this.state.ask}
         >
           <FormControl
@@ -65,7 +92,7 @@ export default function Query() {
           <Button
             type="submit"
             // disabled={!this.state.ask}
-            // onClick={this.clickQuestion}
+            onClick={clickQuestion}
             variant="outline-secondary"
             id="button-addon2"
           >
