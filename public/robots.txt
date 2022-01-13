@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.wixten.com
+
+# Sitemaps
+Sitemap: https://www.wixten.com/sitemap.xml
+Sitemap: https://www.wixten.com/server-sitemap.xml
