@@ -8,12 +8,14 @@
     "start": "next start",
     "export": "next export",
     "deploy": "firebase deploy --only functions,hosting",
-    "lint": "next lint"
+    "lint": "next lint",
+    "post-build": "next-sitemap"
   },
   "dependencies": {
     "axios": "^0.24.0",
     "bootstrap": "^5.1.3",
     "next": "12.0.7",
+    "next-sitemap": "^1.9.9",
     "react": "17.0.2",
     "react-bootstrap": "^2.1.0",
     "react-dom": "17.0.2"
