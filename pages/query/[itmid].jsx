@@ -4,6 +4,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Answershooks from "./Answerhooks";
 import React from "react";
 import { FormControl, Button } from "react-bootstrap";
+import RealtedPost from "./RealtedPost";
 import { useEffect, useState } from "react";
 import Head from "next/head";
 export default function Query() {
@@ -108,8 +109,10 @@ export default function Query() {
           </Button>
         </InputGroup>
       </div>
-      {/* ) : null} */}
-      <Answershooks id={gotid} />
+      <div className="multi-container">
+        <Answershooks id={gotid} />
+        <RealtedPost />
+      </div>
     </>
   );
 }

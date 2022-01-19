@@ -12,6 +12,7 @@
     "post-build": "next-sitemap"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.7.1",
     "axios": "^0.24.0",
     "bootstrap": "^5.1.3",
     "next": "12.0.7",

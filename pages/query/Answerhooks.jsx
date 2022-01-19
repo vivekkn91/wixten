@@ -72,7 +72,7 @@ export default function Answershooks(props) {
   // }
 
   return (
-    <div>
+    <div className="answerhook">
       {posts.map((personData, index) => {
         return (
           <Card key={index} className="cardmobile">
