@@ -26,10 +26,9 @@ export default function RealtedPost() {
         {Item.map((itm, k) => {
           return (
             <>
-              {/* <a href=`https://wixten.com/query/` + {itm.id} > */}
-
-              <ListGroup.Item>{itm.Name}</ListGroup.Item>
-              {/* </a> */}
+              <a href={"https://wixten.com/query/" + itm._id}>
+                <ListGroup.Item>{itm.Name}</ListGroup.Item>
+              </a>
             </>
           );
         })}
