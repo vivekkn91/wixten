@@ -3,14 +3,17 @@ import axios from "axios";
 import InputGroup from "react-bootstrap/InputGroup";
 import Answershooks from "./Answerhooks";
 import React from "react";
+import Nav from "../navigation";
 import { FormControl, Button } from "react-bootstrap";
 import RealtedPost from "./RealtedPost";
 import { useEffect, useState } from "react";
 import Head from "next/head";
+
 export default function Query() {
   const [Item, setItem] = useState([]);
   const [Questions, setQuestions] = useState();
   const router = useRouter();
+  const baseurl = "https://wixten.com/query/";
   var id = router.query.itmid;
   var gotid = id;
   console.log(id);
@@ -47,6 +50,7 @@ export default function Query() {
   }, [id]);
   return (
     <>
+      <Nav />
       <>
         {/* {Item} */}
         {Item.map((itm, k) => {
@@ -54,7 +58,7 @@ export default function Query() {
             <>
               <Head>
                 <title>wixten - {itm.Name} </title>
-                <link rel="shortcut icon" href="/static/favicon.ico" />
+                <link rel="shortcut icon" href="/wixten.png" />
                 <meta
                   name="viewport"
                   content="initial-scale=1.0, width=device-width"
@@ -63,10 +67,17 @@ export default function Query() {
                   name="description"
                   content="wixten provides answers for all your questions wixten is a site that is in devlopment for answering doubts that are created and thay are answered by the users of wixten which will create a community of wixten users"
                 />
-
+                <meta charSet="utf-8" />
                 <meta property="og:title" content={itm.Name} />
                 <meta property="og:description" content={itm.Name} />
                 <meta property="og:image" content="images/wixten.png" />
+                <meta property="og:locale" key="og:locale" content="en_US" />
+                <meta property="og:type" key="og:type" content="website" />
+                <meta
+                  property="og:url"
+                  key="og:url"
+                  content={`${baseurl}${itm._id}`}
+                />
               </Head>
               {/* <Helmet>
                 <meta charSet="utf-8" />

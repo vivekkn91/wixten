@@ -29,6 +29,7 @@ export default function Home() {
     <>
       <Head>
         <title>wixten </title>
+        <link rel="shortcut icon" href="/wixten.png" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta
           name="description"

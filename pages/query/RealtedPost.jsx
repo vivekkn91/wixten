@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 export default function RealtedPost() {
   const [Item, setItems] = useState([]);
   useEffect(() => {
-    axios.get("https://ask-over.herokuapp.com/questapi").then((result) => {
+    axios.get("https://ask-over.herokuapp.com/recent10").then((result) => {
       // console.table(result.data);
       setItems(result.data);
     });
@@ -26,7 +26,10 @@ export default function RealtedPost() {
         {Item.map((itm, k) => {
           return (
             <>
+              {/* <a href=`https://wixten.com/query/` + {itm.id} > */}
+
               <ListGroup.Item>{itm.Name}</ListGroup.Item>
+              {/* </a> */}
             </>
           );
         })}
