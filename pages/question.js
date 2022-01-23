@@ -20,18 +20,18 @@ export default function Question() {
       {/* {console.log(Items)} */}
       {Items.reverse().map((itm, k) => (
         <a href={"https://wixten.com/query/" + itm._id}>
-          <Link
+          {/* <Link
             key={itm._id}
             href={{
               pathname: "query/[itm]",
               // query: { id: itm.id },
             }}
             as={`query/${encodeURIComponent(itm._id)}`}
-          >
-            {/* <Link href={`/query/${encodeURIComponent(itm._id)}`}> */}
+          > */}
+          {/* <Link href={`/query/${encodeURIComponent(itm._id)}`}> */}
 
-            <Alert className="question13">{itm.Name}</Alert>
-          </Link>
+          <Alert className="question13">{itm.Name}</Alert>
+          {/* </Link> */}
         </a>
       ))}
     </div>
