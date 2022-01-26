@@ -30,14 +30,15 @@ a {
   margin-top: 5%;
   margin-bottom: 5rem !important;
 }
-.question13:nth-of-type(even) {
+.alert-primary:nth-of-type(even) {
   color: #ffffff !important;
   background-color: #1768ac;
   border-color: #1768ac;
 }
-.question13:nth-of-type(odd) {
+.alert-primary:nth-of-type(odd) {
   color: #000000 !important;
   background-color: #e5d549;
+
   border-color: #e5d549 !important;
 }
 

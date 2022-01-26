@@ -16,7 +16,7 @@ export default function Question() {
   }, []);
 
   return (
-    <div>
+    <div className="question11">
       {/* {console.log(Items)} */}
       {Items.reverse().map((itm, k) => (
         <a href={"https://wixten.com/query/" + itm._id} key={itm._id}>
