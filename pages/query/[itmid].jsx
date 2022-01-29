@@ -85,6 +85,7 @@ export default function Query() {
               </Helmet> */}
               <div key={itm._id} className="Question-one">
                 <h1> {itm.Name}</h1>
+                <h2>{itm.Summary}</h2>
               </div>
               <div className="username">
                 <span className="username2">--{itm.username}</span>

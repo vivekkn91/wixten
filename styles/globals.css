@@ -30,6 +30,9 @@ a {
   margin-top: 5%;
   margin-bottom: 5rem !important;
 }
+.mb-3 {
+  padding: 1%;
+}
 .alert-primary:nth-of-type(even) {
   color: #ffffff !important;
   background-color: #1768ac;
