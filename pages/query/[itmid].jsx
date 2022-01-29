@@ -57,16 +57,13 @@ export default function Query() {
           return (
             <>
               <Head>
-                <title>wixten - {itm.Name} </title>
+                <title> {itm.Name} - wixten </title>
                 <link rel="shortcut icon" href="/wixten.png" />
                 <meta
                   name="viewport"
                   content="initial-scale=1.0, width=device-width"
                 />
-                <meta
-                  name="description"
-                  content="wixten provides answers for all your questions wixten is a site that is in devlopment for answering doubts that are created and thay are answered by the users of wixten which will create a community of wixten users"
-                />
+                <meta name="description" content={itm.Name} />
                 <meta charSet="utf-8" />
                 <meta property="og:title" content={itm.Name} />
                 <meta property="og:description" content={itm.Name} />
