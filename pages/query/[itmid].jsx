@@ -63,10 +63,10 @@ export default function Query() {
                   name="viewport"
                   content="initial-scale=1.0, width=device-width"
                 />
-                <meta name="description" content={itm.Name} />
+                <meta name="description" content={itm.Summary} />
                 <meta charSet="utf-8" />
                 <meta property="og:title" content={itm.Name} />
-                <meta property="og:description" content={itm.Name} />
+                <meta property="og:description" content={itm.Summary} />
                 <meta property="og:image" content="images/wixten.png" />
                 <meta property="og:locale" key="og:locale" content="en_US" />
                 <meta property="og:type" key="og:type" content="website" />
