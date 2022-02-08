@@ -9,7 +9,7 @@ import RealtedPost from "./RealtedPost";
 import { useEffect, useState } from "react";
 import Head from "next/head";
 
-export default function Query() {
+function Query({ posts }) {
   const [Item, setItem] = useState([]);
   const [Questions, setQuestions] = useState();
   const router = useRouter();
@@ -36,24 +36,25 @@ export default function Query() {
         window.location.reload();
       });
   }
-  useEffect(() => {
-    if (id != null) {
-      axios
-        .get("https://ask-over.herokuapp.com/questone/" + gotid)
-        .then((result) => {
-          console.log(result);
-          // document.title = result.data[0].Name;
-          setItem(result.data);
-        });
-    }
-    //  console.table(this.state.items);
-  }, [id]);
+  // useEffect(() => {
+  //   if (id != null) {
+  //     axios
+  //       .get("https://ask-over.herokuapp.com/questone/" + gotid)
+  //       .then((result) => {
+  //         console.log(result);
+  //         // document.title = result.data[0].Name;
+  //         setItem(result.data);
+  //       });
+  //   }
+  //   //  console.table(this.state.items);
+  // }, [id]);
+
   return (
     <>
       <Nav />
       <>
         {/* {Item} */}
-        {Item.map((itm, k) => {
+        {posts.map((itm, k) => {
           return (
             <>
               <Head>
@@ -125,3 +126,29 @@ export default function Query() {
     </>
   );
 }
+// export async function getStaticPaths() {
+//   return {
+//     paths: [{ params: { query: gotid } }],
+//     fallback: blocking, // false or 'blocking'
+//   };
+// }
+export async function getServerSideProps(ctx) {
+  // Call an external API endpoint to get posts.
+  // const router = useRouter();
+  var id = ctx.query.itmid;
+  // You can use any data fetching library
+
+  const res = await fetch("https://ask-over.herokuapp.com/questone/" + id);
+  console.log("check");
+  console.log("dada");
+  const posts = await res.json();
+
+  // By returning { props: { posts } }, the Blog component
+  // will receive `posts` as a prop at build time
+  return {
+    props: {
+      posts,
+    },
+  };
+}
+export default Query;

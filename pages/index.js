@@ -3,7 +3,8 @@ import Head from "next/head";
 import Navigation from "./navigation";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
-import Question from "./question";
+import Questions3 from "./questions";
+
 import axios from "axios";
 import { FormControl, Button } from "react-bootstrap";
 
@@ -34,6 +35,7 @@ export default function Home() {
     setdeatils(e.target.value);
     // this.setState({ ask: e.target.value });
   }
+
   return (
     <>
       <Head>
@@ -92,7 +94,7 @@ export default function Home() {
             ask?
           </Button>
           {/* ) : null} */}
-          <Question />
+          <Questions3 />
         </div>
       </div>
     </>

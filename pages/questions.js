@@ -5,8 +5,8 @@ import { useState } from "react";
 import { useEffect } from "react";
 import Link from "next/link";
 import Head from "next/head";
-
-export default function Question() {
+function Question3({ Item }) {
+  // console.log(posts);
   const [Items, setItems] = useState([]);
   useEffect(() => {
     axios.get("https://ask-over.herokuapp.com/questapi").then((result) => {
@@ -17,8 +17,8 @@ export default function Question() {
 
   return (
     <div className="question11">
-      {/* {console.log(Items)} */}
-      {Items.reverse().map((itm, k) => (
+      {console.log(Item)}
+      {Items.map((itm) => (
         <a href={"https://wixten.com/query/" + itm._id} key={itm._id}>
           {/* <Link
             key={itm._id}
@@ -37,3 +37,5 @@ export default function Question() {
     </div>
   );
 }
+
+export default Question3;
