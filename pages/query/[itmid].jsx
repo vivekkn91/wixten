@@ -135,10 +135,10 @@ function Query({ posts }) {
 export async function getServerSideProps(ctx) {
   // Call an external API endpoint to get posts.
   // const router = useRouter();
-  var id = ctx.query.itmid;
+  var id1 = ctx.query.itmid;
   // You can use any data fetching library
 
-  const res = await fetch("https://ask-over.herokuapp.com/questone/" + id);
+  const res = await fetch("https://ask-over.herokuapp.com/questone/" + id1);
   console.log("check");
   console.log("dada");
   const posts = await res.json();
