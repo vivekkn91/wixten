@@ -19,20 +19,20 @@ function Question3({ Item }) {
     <div className="question11">
       {console.log(Item)}
       {Items.map((itm) => (
-        <a href={"https://wixten.com/query/" + itm._id} key={itm._id}>
-          {/* <Link
-            key={itm._id}
-            href={{
-              pathname: "query/[itm]",
-              // query: { id: itm.id },
-            }}
-            as={`query/${encodeURIComponent(itm._id)}`}
-          > */}
+        // <a href={"https://wixten.com/query/" + itm._id} key={itm._id}>
+        <Link
+          key={itm._id}
+          href={{
+            pathname: "query/[itm]",
+            // query: { id: itm.id },
+          }}
+          as={`query/${encodeURIComponent(itm._id)}`}
+        >
           {/* <Link href={`/query/${encodeURIComponent(itm._id)}`}> */}
-
           <Alert className="question13">{itm.Name}</Alert>
-          {/* </Link> */}
-        </a>
+        </Link>
+        //{" "}
+        // </a>
       ))}
     </div>
   );
