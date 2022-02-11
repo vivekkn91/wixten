@@ -40,6 +40,10 @@ export default function Home() {
     <>
       <Head>
         <title>wixten </title>
+        <meta
+          name="google-site-verification"
+          content="rqVH7Jc-L-NyyCYGf2LOEjRPFEUvi8iImncslSfxtac"
+        />
         <link rel="shortcut icon" href="/wixten.png" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta
