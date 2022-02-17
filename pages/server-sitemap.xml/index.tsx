@@ -8,6 +8,8 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
   const fields: ISitemapField[] = capsules.map((capsule) => ({
     loc: `https://wixten.com/query/${capsule._id}`,
+    changefreq: "daily",
+    priority: 0.7,
     lastmod: new Date().toISOString(),
   }));
 
