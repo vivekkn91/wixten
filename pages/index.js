@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import Navigation from "./navigation";
+// import MyEditor from "./editor";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
 import Questions3 from "./questions";
@@ -71,6 +72,7 @@ export default function Home() {
               <Form.Control onChange={deatils} as="textarea" rows={3} />
             </Form.Group>
           </Form>
+
           {/* <Form>
             <InputGroup
               className="mb-3"

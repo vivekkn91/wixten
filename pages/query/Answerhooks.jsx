@@ -77,7 +77,7 @@ export default function Answershooks(props) {
         return (
           <Card key={index} className="cardmobile">
             <Card.Body>
-              <h2 className="answersize">{personData.Answers}</h2>
+              <p className="answersize">{personData.Answers}</p>
             </Card.Body>
             <div className="buttontwo">
               <Button

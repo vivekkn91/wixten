@@ -19,7 +19,7 @@ export default function RealtedPost() {
           // query: { id: itm.id },
         }}
       >
-        <h2>Related questions </h2>
+        <h3>Related questions </h3>
       </Link>
 
       <ListGroup>

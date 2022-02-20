@@ -85,8 +85,8 @@ function Query({ posts }) {
                 <link rel="canonical" href={itm.Name} />
               </Helmet> */}
               <div key={itm._id} className="Question-one">
-                <h1> {itm.Name}</h1>
-                <h2>{itm.Summary}</h2>
+                <h2> {itm.Name}</h2>
+                <p>{itm.Summary}</p>
               </div>
               <div className="username">
                 <span className="username2">--{itm.username}</span>
