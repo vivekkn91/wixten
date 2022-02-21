@@ -112,7 +112,7 @@ export async function getServerSideProps() {
   // Fetch data from external API
   const res = await fetch(`https://ask-over.herokuapp.com/questapi`);
   const data = await res.json();
-  console.log(data);
+  // console.log(data);
   // Pass data to the page via props
   return { props: { data } };
 }
