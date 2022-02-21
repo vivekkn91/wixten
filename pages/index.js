@@ -1,16 +1,17 @@
 import React from "react";
 import Head from "next/head";
 import Navigation from "./navigation";
+import { GetServerSideProps } from "next";
 // import MyEditor from "./editor";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
-import Questions3 from "./questions";
+import Questions3 from "../pages/question";
 
 import axios from "axios";
 import { FormControl, Button } from "react-bootstrap";
 
 import InputGroup from "react-bootstrap/InputGroup";
-export default function Home() {
+function Home({ data }) {
   const [Questions, setQuestions] = useState();
   const [deatils1, setdeatils] = useState();
 
@@ -99,10 +100,20 @@ export default function Home() {
           >
             ask?
           </Button>
-          {/* ) : null} */}
-          <Questions3 />
+
+          <Questions3 data={data} />
         </div>
       </div>
     </>
   );
 }
+
+export async function getServerSideProps() {
+  // Fetch data from external API
+  const res = await fetch(`https://ask-over.herokuapp.com/questapi`);
+  const data = await res.json();
+  console.log(data);
+  // Pass data to the page via props
+  return { props: { data } };
+}
+export default Home;

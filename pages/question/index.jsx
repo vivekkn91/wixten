@@ -5,20 +5,21 @@ import { useState } from "react";
 import { useEffect } from "react";
 import Link from "next/link";
 import Head from "next/head";
-function Question3({ Item }) {
-  // console.log(posts);
+function Question3(props) {
+  const data = props.data;
   const [Items, setItems] = useState([]);
-  useEffect(() => {
-    axios.get("https://ask-over.herokuapp.com/questapi").then((result) => {
-      // console.table(result.data);
-      setItems(result.data);
-    });
-  }, []);
+  // useEffect(() => {
+  //   axios.get("https://ask-over.herokuapp.com/questapi").then((result) => {
+  //     // console.table(result.data);
+  //     setItems(result.data);
+  //   });
+  // }, []);
 
   return (
     <div className="question11">
-      {console.log(Item)}
-      {Items.map((itm) => (
+      dsdsds
+      {/* {console.log(props)} */}
+      {data.map((itm) => (
         // <a href={"https://wixten.com/query/" + itm._id} key={itm._id}>
         <Link
           key={itm._id}
@@ -38,4 +39,12 @@ function Question3({ Item }) {
   );
 }
 
+export async function getServerSideProps() {
+  // Fetch data from external API
+  const res = await fetch(`https://ask-over.herokuapp.com/questapi`);
+  const data = await res.json();
+  // console.log(data);
+  // Pass data to the page via props
+  return { props: { data } };
+}
 export default Question3;
