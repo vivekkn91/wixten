@@ -108,7 +108,7 @@ function Home({ data }) {
   );
 }
 
-export async function getInitialProps() {
+export async function getServerSideProps() {
   // Fetch data from external API
   const res = await fetch(`https://ask-over.herokuapp.com/questapi`);
   const data = await res.json();

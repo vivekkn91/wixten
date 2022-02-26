@@ -17,7 +17,7 @@ function Question3(props) {
 
   return (
     <div className="question11">
-      dsdsds
+      {/* dsdsds */}
       {/* {console.log(props)} */}
       {data.map((itm) => (
         // <a href={"https://wixten.com/query/" + itm._id} key={itm._id}>
@@ -39,12 +39,12 @@ function Question3(props) {
   );
 }
 
-export async function getServerSideProps() {
-  // Fetch data from external API
-  const res = await fetch(`https://ask-over.herokuapp.com/questapi`);
-  const data = await res.json();
-  // console.log(data);
-  // Pass data to the page via props
-  return { props: { data } };
-}
+// export async function getServerSideProps() {
+//   // Fetch data from external API
+//   const res = await fetch(`https://ask-over.herokuapp.com/questapi`);
+//   const data = await res.json();
+//   // console.log(data);
+//   // Pass data to the page via props
+//   return { props: { data } };
+// }
 export default Question3;
