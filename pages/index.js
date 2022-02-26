@@ -5,7 +5,7 @@ import { GetServerSideProps } from "next";
 // import MyEditor from "./editor";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
-import Questions3 from "../pages/question";
+import Questions3 from "../question";
 
 import axios from "axios";
 import { FormControl, Button } from "react-bootstrap";
