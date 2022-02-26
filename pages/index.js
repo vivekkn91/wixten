@@ -100,6 +100,7 @@ function Home({ data }) {
           >
             ask?
           </Button>
+          {/* <Questions3 /> */}
 
           <Questions3 data={data} />
         </div>

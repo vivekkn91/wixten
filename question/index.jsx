@@ -5,8 +5,8 @@ import { useState } from "react";
 import { useEffect } from "react";
 import Link from "next/link";
 import Head from "next/head";
-function Question3(props) {
-  const data = props.data;
+function Question3({ data }) {
+  // console.log(data);
   const [Items, setItems] = useState([]);
   // useEffect(() => {
   //   axios.get("https://ask-over.herokuapp.com/questapi").then((result) => {
