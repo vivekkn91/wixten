@@ -11,7 +11,7 @@ import axios from "axios";
 import { FormControl, Button } from "react-bootstrap";
 
 import InputGroup from "react-bootstrap/InputGroup";
-function Home({ data }) {
+function Home() {
   const [Questions, setQuestions] = useState();
   const [deatils1, setdeatils] = useState();
 
@@ -102,19 +102,19 @@ function Home({ data }) {
           </Button>
           {/* <Questions3 /> */}
 
-          <Questions3 data={data} />
+          {/* <Questions3 data={data} /> */}
         </div>
       </div>
     </>
   );
 }
 
-export async function getServerSideProps() {
-  // Fetch data from external API
-  const res = await fetch(`https://ask-over.herokuapp.com/questapi`);
-  const data = await res.json();
-  // console.log(data);
-  // Pass data to the page via props
-  return { props: { data } };
-}
+// export async function getServerSideProps() {
+//   // Fetch data from external API
+//   const res = await fetch(`https://ask-over.herokuapp.com/questapi`);
+//   const data = await res.json();
+//   // console.log(data);
+//   // Pass data to the page via props
+//   return { props: { data } };
+// }
 export default Home;
