@@ -100,7 +100,7 @@ function Home() {
           >
             ask?
           </Button>
-          {/* <Questions3 /> */}
+          <Questions3 />
 
           {/* <Questions3 data={data} /> */}
         </div>
