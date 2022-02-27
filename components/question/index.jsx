@@ -5,8 +5,8 @@ import { useState } from "react";
 import { useEffect } from "react";
 import Link from "next/link";
 import Head from "next/head";
-function Question3({ data }) {
-  // console.log(data);
+function Question3(props) {
+  console.log(props.data);
   const [Items, setItems] = useState([]);
   // useEffect(() => {
   //   axios.get("https://ask-over.herokuapp.com/questapi").then((result) => {
@@ -19,7 +19,7 @@ function Question3({ data }) {
     <div className="question11">
       {/* dsdsds */}
       {/* {console.log(props)} */}
-      {data.map((itm) => (
+      {props.map((itm) => (
         // <a href={"https://wixten.com/query/" + itm._id} key={itm._id}>
         <Link
           key={itm._id}
