@@ -1,7 +1,7 @@
 {
   "name": "wixten",
   "private": true,
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
