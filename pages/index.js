@@ -1,17 +1,19 @@
 import React from "react";
+import Link from "next/link";
 import Head from "next/head";
+import Alert from "react-bootstrap/Alert";
 import Navigation from "./navigation";
 import { GetServerSideProps } from "next";
 // import MyEditor from "./editor";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
-import Questions3 from "../components/question";
+// import Questions3 from "../components/question";
 
 import axios from "axios";
 import { FormControl, Button } from "react-bootstrap";
 
 import InputGroup from "react-bootstrap/InputGroup";
-function Home() {
+function Home({ data }) {
   const [Questions, setQuestions] = useState();
   const [deatils1, setdeatils] = useState();
 
@@ -100,7 +102,19 @@ function Home() {
           >
             ask?
           </Button>
-          <Questions3 />
+          <div className="question11">
+            {data.map((itm) => (
+              <Link
+                key={itm._id}
+                href={{
+                  pathname: "query/[itm]",
+                }}
+                as={`query/${encodeURIComponent(itm._id)}`}
+              >
+                <Alert className="question13">{itm.Name}</Alert>
+              </Link>
+            ))}
+          </div>
 
           {/* <Questions3 data={data} /> */}
         </div>
@@ -109,12 +123,12 @@ function Home() {
   );
 }
 
-// export async function getServerSideProps() {
-//   // Fetch data from external API
-//   const res = await fetch(`https://ask-over.herokuapp.com/questapi`);
-//   const data = await res.json();
-//   // console.log(data);
-//   // Pass data to the page via props
-//   return { props: { data } };
-// }
+export async function getServerSideProps() {
+  // Fetch data from external API
+  const res = await fetch(`https://ask-over.herokuapp.com/questapi`);
+  const data = await res.json();
+  // console.log(data);
+  // Pass data to the page via props
+  return { props: { data } };
+}
 export default Home;
