@@ -104,6 +104,13 @@ function Home({ data }) {
           </Button>
           <div className="question11">
             {data.map((itm) => (
+              <a href={`https://www.wixten.com/query/` + itm._id}>
+                <Alert className="question13">{itm.Name}</Alert>
+              </a>
+            ))}
+          </div>
+          {/* <div className="question11">
+            {data.map((itm) => (
               <Link
                 key={itm._id}
                 href={{
@@ -114,7 +121,7 @@ function Home({ data }) {
                 <Alert className="question13">{itm.Name}</Alert>
               </Link>
             ))}
-          </div>
+          </div> */}
 
           {/* <Questions3 data={data} /> */}
         </div>
