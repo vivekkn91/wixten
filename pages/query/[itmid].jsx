@@ -24,7 +24,7 @@ function Query({ posts }) {
 
   function clickQuestion() {
     axios
-      .post("https://ask-over.herokuapp.com/answerpost", {
+      .post("http://54.242.85.178/answerpost", {
         Answers: Questions,
 
         correctcount: 0,
