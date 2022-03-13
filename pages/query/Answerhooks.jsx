@@ -20,7 +20,7 @@ export default function Answershooks(props) {
   useEffect(() => {
     if (props.id != null) {
       axios
-        .get("https://ask-over.herokuapp.com/answersapi/" + props.id)
+        .get("http://54.242.85.178/answersapi/" + props.id)
         .then((result) => {
           console.table(result.data);
           var somevariable = result;
