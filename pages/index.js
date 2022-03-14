@@ -19,7 +19,7 @@ function Home({ data }) {
 
   function clickQuestion() {
     axios
-      .post("http://54.242.85.178/questionpost", {
+      .post("http://askover.wixten.com/questionpost", {
         Name: Questions,
 
         Summary: deatils1,
@@ -132,7 +132,7 @@ function Home({ data }) {
 
 export async function getServerSideProps() {
   // Fetch data from external API
-  const res = await fetch(`http://54.242.85.178/questapi`);
+  const res = await fetch(`https://askover.wixten.com/questapi`);
   const data = await res.json();
   // console.log(data);
   // Pass data to the page via props

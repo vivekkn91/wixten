@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 export default function RealtedPost() {
   const [Item, setItems] = useState([]);
   useEffect(() => {
-    axios.get("http://54.242.85.178/recent10").then((result) => {
+    axios.get("https://askover.wixten.com/recent10").then((result) => {
       // console.table(result.data);
       setItems(result.data);
     });

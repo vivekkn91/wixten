@@ -24,7 +24,7 @@ function Query({ posts }) {
 
   function clickQuestion() {
     axios
-      .post("http://54.242.85.178/answerpost", {
+      .post("https://askover.wixten.com/answerpost", {
         Answers: Questions,
 
         correctcount: 0,
