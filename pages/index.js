@@ -19,7 +19,7 @@ function Home({ data }) {
 
   function clickQuestion() {
     axios
-      .post("http://askover.wixten.com/questionpost", {
+      .post("https://askover.wixten.com/questionpost", {
         Name: Questions,
 
         Summary: deatils1,
