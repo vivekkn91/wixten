@@ -7,7 +7,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   //   console.log(capsules);
 
   const fields: ISitemapField[] = capsules.map((capsule) => ({
-    loc: `https://wixten.com/query/${capsule._id}`,
+    loc: `https://www.wixten.com/query/${capsule._id}`,
     changefreq: "always",
     priority: 0.7,
     lastmod: new Date().toISOString(),
