@@ -23,7 +23,7 @@ export default function index() {
       <Navbar bg="primary" variant="dark">
         <Container>
           <Link href="/" passHref>
-            <Navbar.Brand to="/">
+            <Navbar.Brand to="/" title="www.wixten.com">
               <h1 className="logomain">wixten</h1>
             </Navbar.Brand>
           </Link>
