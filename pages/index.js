@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Head from "next/head";
+import Tiny from "./tiny";
 import Alert from "react-bootstrap/Alert";
 import Navigation from "./navigation";
 import { GetServerSideProps } from "next";
@@ -8,7 +9,7 @@ import { GetServerSideProps } from "next";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
 // import Questions3 from "../components/question";
-
+import { useEffect } from "react";
 import axios from "axios";
 import { FormControl, Button } from "react-bootstrap";
 
@@ -16,13 +17,18 @@ import InputGroup from "react-bootstrap/InputGroup";
 function Home({ data }) {
   const [Questions, setQuestions] = useState();
   const [deatils1, setdeatils] = useState();
+  // const [setValue, value] = useState();
+
+  console.log(deatils1);
+  // //listen to all value changes from Tiny
+  // useEffect(() => {}, [value]);
 
   function clickQuestion() {
     axios
       .post("https://askover.wixten.com/questionpost", {
         Name: Questions,
 
-        Summary: deatils1,
+        htmlsummery: deatils1,
 
         // username: this.props.sign.displayName,
         // useremail: this.props.sign.email,
@@ -44,6 +50,7 @@ function Home({ data }) {
     <>
       <Head>
         <title>wixten </title>
+        <meta charset="utf-8" />
         <meta
           name="google-site-verification"
           content="rqVH7Jc-L-NyyCYGf2LOEjRPFEUvi8iImncslSfxtac"
@@ -67,13 +74,13 @@ function Home({ data }) {
                 placeholder="ask anything?"
               />
             </Form.Group>
-            <Form.Group
+            {/* <Form.Group
               className="mb-3"
               controlId="exampleForm.ControlTextarea1"
             >
               <Form.Label>question</Form.Label>
               <Form.Control onChange={deatils} as="textarea" rows={3} />
-            </Form.Group>
+            </Form.Group> */}
           </Form>
 
           {/* <Form>
@@ -93,6 +100,8 @@ function Home({ data }) {
               <FormControl as="textarea" rows={3} />
             </InputGroup>
           </Form> */}
+
+          <Tiny onChange={(value) => setdeatils(value)} />
           <Button
             type="submit"
             disabled={!deatils1 || !Questions}
