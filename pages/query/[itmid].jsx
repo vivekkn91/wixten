@@ -86,7 +86,13 @@ function Query({ posts }) {
               </Helmet> */}
               <div key={itm._id} className="Question-one">
                 <h2> {itm.Name}</h2>
-                {itm.htmlSummary ? tm.htmlSummary : <p>{itm.Summary}</p>}
+                {itm.htmlsummery ? (
+                  <div
+                    dangerouslySetInnerHTML={{ __html: itm.htmlsummery }}
+                  ></div>
+                ) : (
+                  <p>{itm.Summary}</p>
+                )}
               </div>
               <div className="username">
                 <span className="username2">--{itm.username}</span>
