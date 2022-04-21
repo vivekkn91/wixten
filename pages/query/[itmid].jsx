@@ -9,7 +9,7 @@ import RealtedPost from "./RealtedPost";
 import { useEffect, useState } from "react";
 import Head from "next/head";
 
-function Query({ posts }) {
+function Query({ posts, answerPosts }) {
   const [Item, setItem] = useState([]);
   const [Questions, setQuestions] = useState();
   const router = useRouter();
@@ -126,7 +126,7 @@ function Query({ posts }) {
         </InputGroup>
       </div>
       <div className="multi-container">
-        <Answershooks id={gotid} />
+        <Answershooks answerPosts={answerPosts} />
         <RealtedPost />
       </div>
     </>
@@ -143,17 +143,25 @@ export async function getServerSideProps(ctx) {
   // const router = useRouter();
   var id1 = ctx.query.itmid;
   // You can use any data fetching library
+  const queryRequest = fetch(
+    "https://ask-over.herokuapp.com/questone/" + id1
+  ).then(async (res) => await res.json());
+  const answerRequest = fetch(
+    "https://askover.wixten.com/answersapi/" + id1
+  ).then(async (res) => await res.json());
 
-  const res = await fetch("https://ask-over.herokuapp.com/questone/" + id1);
+  const responses = await Promise.all([queryRequest, answerRequest]);
+  const [posts, answerPosts] = await Promise.all(responses);
   console.log("check");
   console.log("dada");
-  const posts = await res.json();
+  // const posts = await res.json();
 
   // By returning { props: { posts } }, the Blog component
   // will receive `posts` as a prop at build time
   return {
     props: {
       posts,
+      answerPosts,
     },
   };
 }

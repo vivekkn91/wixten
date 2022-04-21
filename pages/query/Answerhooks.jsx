@@ -2,13 +2,17 @@ import React from "react";
 import axios from "axios";
 // import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+// import { fetchHandler } from "./fetchhandler";
 import { FormControl, Button } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 
-export default function Answershooks(props) {
-  const [posts, setPosts] = useState([]);
+function Answershooks({ answerPosts }) {
+  // const [posts, setPosts] = useState([]);
+
+  console.log(answerPosts);
+
   const [increment, setincrement] = useState(0);
-  const [reloader, setreloder] = useState(props.reloadAnswer);
+  // const [reloader, setreloder] = useState(props.reloadAnswer);
   //const [decrement, setdecrement] = useState(0);
   // const params = useParams();
   // console.log(props.id);
@@ -17,22 +21,26 @@ export default function Answershooks(props) {
 
   // console.log(props.reloadAnswer);
   // // const Answer = ({ reloadAnswer }) => {
-  useEffect(() => {
-    if (props.id != null) {
-      axios
-        .get("https://askover.wixten.com/answersapi/" + props.id)
-        .then((result) => {
-          console.table(result.data);
-          var somevariable = result;
 
-          setPosts((data) => {
-            return [...data, somevariable];
-          });
+  ///////////////////////////////////
+  // useEffect(() => {
+  //   if (props.id != null) {
+  //     axios
+  //       .get("https://askover.wixten.com/answersapi/" + props.id)
+  //       .then((result) => {
+  //         console.table(result.data);
+  //         var somevariable = result;
 
-          setPosts(result.data);
-        });
-    }
-  }, [props.id]);
+  //         setPosts((data) => {
+  //           return [...data, somevariable];
+  //         });
+
+  //         setPosts(result.data);
+  //       });
+  //   }
+  // }, [props.id]);
+
+  /////////////////////////
   // }, [increment]);
   // };
 
@@ -73,11 +81,12 @@ export default function Answershooks(props) {
 
   return (
     <div className="answerhook">
-      {posts.map((personData, index) => {
+      {/* {console.log(posts)} */}
+      {answerPosts.map((personData, index) => {
         return (
           <Card key={index} className="cardmobile">
             <Card.Body>
-              <p className="answersize">{personData.Answers}</p>
+              <p className="answersize">{personData.Answers} </p>
             </Card.Body>
             <div className="buttontwo">
               <Button
@@ -102,3 +111,27 @@ export default function Answershooks(props) {
     </div>
   );
 }
+export async function getServerSideProps(ctx) {
+  console.log(ctx);
+  // Call an external API endpoint to get posts.
+  // const router = useRouter();
+  var id1 = ctx.query.id;
+  // You can use any data fetching library
+  console.log(ctx.query.itmid);
+
+  const res = await fetch("https://askover.wixten.com/answersapi/" + id1);
+  console.log("check");
+
+  console.log(res);
+  console.log("dada");
+  const posts = await res.json();
+
+  // By returning { props: { posts } }, the Blog component
+  // will receive `posts` as a prop at build time
+  return {
+    props: {
+      posts,
+    },
+  };
+}
+export default Answershooks;
