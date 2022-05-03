@@ -3,6 +3,7 @@ import axios from "axios";
 import InputGroup from "react-bootstrap/InputGroup";
 import Answershooks from "./Answerhooks";
 import React from "react";
+
 import Nav from "../navigation";
 import { FormControl, Button } from "react-bootstrap";
 import RealtedPost from "./RealtedPost";
