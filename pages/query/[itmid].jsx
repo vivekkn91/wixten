@@ -67,6 +67,10 @@ function Query({ posts, answerPosts }) {
 
                 <meta name="description" content={itm.Summary} />
                 <meta charSet="utf-8" />
+                <meta
+                  name="keywords"
+                  content="wixten,aot season 4 part 2,MCU,MARVEL,marvel,doctor strange,spiderman,avatar 2, avatar 2 trailer "
+                ></meta>
                 <meta property="og:title" content={itm.Name} />
                 <meta property="og:description" content={itm.Summary} />
                 <meta property="og:image" content="images/wixten.png" />

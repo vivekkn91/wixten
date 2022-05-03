@@ -56,6 +56,10 @@ function Home({ data }) {
           content="rqVH7Jc-L-NyyCYGf2LOEjRPFEUvi8iImncslSfxtac"
         />
         <link rel="shortcut icon" href="/wixten.png" />
+        <meta
+          name="keywords"
+          content="wixten,aot season 4 part 2,MCU,MARVEL,marvel,doctor strange,spiderman,avatar 2, avatar 2 trailer "
+        ></meta>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta
           name="description"
