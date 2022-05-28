@@ -115,30 +115,36 @@ function Home({ data }) {
           >
             ask?
           </Button>
-          <div className="question11">
+          {/* <div className="question11">
             {data.map((itm) => (
               <a
                 key={itm._id}
-                href={`https://www.wixten.com/query/` + itm._id}
+                // href={`http://localhost:3001/` + itm._id}
                 title={itm.Name}
               >
                 <Alert className="question13">{itm.Name}</Alert>
               </a>
             ))}
-          </div>
-          {/* <div className="question11">
+          </div> */}
+          <div className="question11">
             {data.map((itm) => (
               <Link
                 key={itm._id}
                 href={{
-                  pathname: "query/[itm]",
+                  pathname: "/[itm]",
+                  query: { id: itm._id },
                 }}
-                as={`query/${encodeURIComponent(itm._id)}`}
+                as={`/${encodeURIComponent(
+                  itm.Name.replace(/[^a-zA-Z0-9 - _ . ~]/g, "").replace(
+                    / /g,
+                    "-"
+                  )
+                )}`}
               >
                 <Alert className="question13">{itm.Name}</Alert>
               </Link>
             ))}
-          </div> */}
+          </div>
 
           {/* <Questions3 data={data} /> */}
         </div>

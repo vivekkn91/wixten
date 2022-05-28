@@ -29,7 +29,7 @@ export default function RealtedPost() {
             // query: { id: itm.id },
           }}
         >
-          <img src="/wixten.png" alt="wixten" />
+          <img src="/wixten.png" alt="wixten" hidden />
         </Link>
 
         <ListGroup>

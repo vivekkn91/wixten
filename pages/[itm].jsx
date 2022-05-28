@@ -1,12 +1,12 @@
 import { useRouter } from "next/router";
 import axios from "axios";
 import InputGroup from "react-bootstrap/InputGroup";
-import Answershooks from "./Answerhooks";
+import Answershooks from "../pages/query/Answerhooks";
 import React from "react";
 
-import Nav from "../navigation";
+import Nav from "./navigation";
 import { FormControl, Button } from "react-bootstrap";
-import RealtedPost from "./RealtedPost";
+import RealtedPost from "../pages/query/RealtedPost";
 import { useEffect, useState } from "react";
 import Head from "next/head";
 
@@ -16,15 +16,12 @@ function Query({ posts, answerPosts }) {
   const router = useRouter();
   const baseurl = "http://localhost:3001/";
 
-  //  const router = useRouter();
-
   const { qst } = router.query;
-  var id = router.query.itmid;
-  var gotid = id;
-  console.log(id);
+  var id = router.query;
+  var gotid = qst;
+  console.log(posts);
   function question(e) {
     setQuestions(e.target.value);
-    // this.setState({ ask: e.target.value });
   }
 
   function clickQuestion() {
@@ -41,24 +38,11 @@ function Query({ posts, answerPosts }) {
         window.location.reload();
       });
   }
-  // useEffect(() => {
-  //   if (id != null) {
-  //     axios
-  //       .get("https://ask-over.herokuapp.com/questone/" + gotid)
-  //       .then((result) => {
-  //         console.log(result);
-  //         // document.title = result.data[0].Name;
-  //         setItem(result.data);
-  //       });
-  //   }
-  //   //  console.table(this.state.items);
-  // }, [id]);
 
   return (
     <>
       <Nav />
       <>
-        {/* {Item} */}
         {posts.map((itm, k) => {
           return (
             <>
@@ -87,13 +71,7 @@ function Query({ posts, answerPosts }) {
                   content={`${baseurl}${itm._id}`}
                 />
               </Head>
-              {/* <Helmet>
-                <meta charSet="utf-8" />
-                <title> wixten - {itm.Name} </title>
-                <meta name="description" content={itm.Name} />
-                <meta property="og:type" content="article" />
-                <link rel="canonical" href={itm.Name} />
-              </Helmet> */}
+
               <div key={itm._id} className="Question-one">
                 <h2> {itm.Name}</h2>
                 {itm.htmlsummery ? (
@@ -111,22 +89,16 @@ function Query({ posts, answerPosts }) {
           );
         })}
       </>
-      {/* {this.props.hide ? ( */}
+
       <div className="container search-box">
-        <InputGroup
-          className="mb-3"
-          onChange={question}
-          // value={this.state.ask}
-        >
+        <InputGroup className="mb-3" onChange={question}>
           <FormControl
             placeholder="answer this question"
             aria-label="answer this question"
-            // aria-label="answer this question"
             aria-describedby="basic-addon2"
           />
           <Button
             type="submit"
-            // disabled={!this.state.ask}
             onClick={clickQuestion}
             variant="outline-secondary"
             id="button-addon2"
@@ -142,17 +114,11 @@ function Query({ posts, answerPosts }) {
     </>
   );
 }
-// export async function getStaticPaths() {
-//   return {
-//     paths: [{ params: { query: gotid } }],
-//     fallback: blocking, // false or 'blocking'
-//   };
-// }
-export async function getServerSideProps(ctx) {
-  // Call an external API endpoint to get posts.
-  // const router = useRouter();
-  var id1 = ctx.query;
-  // You can use any data fetching library
+
+export async function getServerSideProps(context) {
+  var id1 = context.query.id;
+
+  // console.log(context.query.id);
   const queryRequest = fetch("https://askover.wixten.com/questone/" + id1).then(
     async (res) => await res.json()
   );
@@ -162,12 +128,9 @@ export async function getServerSideProps(ctx) {
 
   const responses = await Promise.all([queryRequest, answerRequest]);
   const [posts, answerPosts] = await Promise.all(responses);
-  console.log("check");
-  console.log("dada");
-  // const posts = await res.json();
+  // console.log("check");
+  // console.log("dada");
 
-  // By returning { props: { posts } }, the Blog component
-  // will receive `posts` as a prop at build time
   return {
     props: {
       posts,
