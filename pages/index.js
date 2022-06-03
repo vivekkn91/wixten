@@ -19,7 +19,7 @@ function Home({ data }) {
   const [deatils1, setdeatils] = useState();
   // const [setValue, value] = useState();
 
-  console.log(deatils1);
+  // console.log(deatils1);
   // //listen to all value changes from Tiny
   // useEffect(() => {}, [value]);
 
@@ -131,15 +131,21 @@ function Home({ data }) {
               <Link
                 key={itm._id}
                 href={{
-                  pathname: "/[itm]",
-                  query: { id: itm._id },
+                  pathname: "[id]/[slug2]",
+                  query: {
+                    slug2: itm.Name.replace(
+                      /[^a-zA-Z0-9 - _ . ~]/g,
+                      ""
+                    ).replace(/ /g, "-"),
+                    id: itm._id,
+                  },
                 }}
-                as={`/${encodeURIComponent(
-                  itm.Name.replace(/[^a-zA-Z0-9 - _ . ~]/g, "").replace(
-                    / /g,
-                    "-"
-                  )
-                )}`}
+                // as={`/${encodeURIComponent(
+                //   itm.Name.replace(/[^a-zA-Z0-9 - _ . ~]/g, "").replace(
+                //     / /g,
+                //     "-"
+                //   )
+                // )}`}
               >
                 <Alert className="question13">{itm.Name}</Alert>
               </Link>

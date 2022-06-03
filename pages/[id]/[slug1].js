@@ -1,12 +1,12 @@
 import { useRouter } from "next/router";
 import axios from "axios";
 import InputGroup from "react-bootstrap/InputGroup";
-import Answershooks from "../pages/query/Answerhooks";
+import Answershooks from "../query/Answerhooks";
 import React from "react";
 
-import Nav from "./navigation";
+import Nav from "../navigation";
 import { FormControl, Button } from "react-bootstrap";
-import RealtedPost from "../pages/query/RealtedPost";
+import RealtedPost from "../query/RealtedPost";
 import { useEffect, useState } from "react";
 import Head from "next/head";
 
@@ -19,7 +19,7 @@ function Query({ posts, answerPosts }) {
   const { qst } = router.query;
   var id = router.query;
   var gotid = qst;
-  console.log(posts);
+  // console.log(posts);
   function question(e) {
     setQuestions(e.target.value);
   }
