@@ -9,7 +9,7 @@ import Card from "react-bootstrap/Card";
 function Answershooks({ answerPosts }) {
   // const [posts, setPosts] = useState([]);
 
-  console.log(answerPosts);
+  // console.log(answerPosts);
 
   const [increment, setincrement] = useState(0);
   // const [reloader, setreloder] = useState(props.reloadAnswer);
@@ -112,7 +112,7 @@ function Answershooks({ answerPosts }) {
   );
 }
 export async function getServerSideProps(ctx) {
-  console.log(ctx);
+  // console.log(ctx);
   // Call an external API endpoint to get posts.
   // const router = useRouter();
   var id1 = ctx.query.id;
@@ -120,10 +120,10 @@ export async function getServerSideProps(ctx) {
   console.log(ctx.query.itmid);
 
   const res = await fetch("https://askover.wixten.com/answersapi/" + id1);
-  console.log("check");
+  // console.log("check");
 
-  console.log(res);
-  console.log("dada");
+  // console.log(res);
+  // console.log("dada");
   const posts = await res.json();
 
   // By returning { props: { posts } }, the Blog component

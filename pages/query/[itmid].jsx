@@ -21,7 +21,7 @@ function Query({ posts, answerPosts }) {
   const { qst } = router.query;
   var id = router.query.itmid;
   var gotid = id;
-  console.log(id);
+  // console.log(id);
   function question(e) {
     setQuestions(e.target.value);
     // this.setState({ ask: e.target.value });
@@ -162,8 +162,8 @@ export async function getServerSideProps(ctx) {
 
   const responses = await Promise.all([queryRequest, answerRequest]);
   const [posts, answerPosts] = await Promise.all(responses);
-  console.log("check");
-  console.log("dada");
+  // console.log("check");
+  // console.log("dada");
   // const posts = await res.json();
 
   // By returning { props: { posts } }, the Blog component

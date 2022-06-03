@@ -36,12 +36,27 @@ export default function RealtedPost() {
           {Item.map((itm, k) => {
             return (
               <>
-                <a
-                  href={"https://wixten.com/query/" + itm._id}
-                  title={itm.Name}
+                <Link
+                  key={itm._id}
+                  href={{
+                    pathname: "/[id]/[slug2]",
+                    query: {
+                      slug2: itm.Name.replace(
+                        /[^a-zA-Z0-9 - _ . ~]/g,
+                        ""
+                      ).replace(/ /g, "-"),
+                      id: itm._id,
+                    },
+                  }}
+                  // as={`/${encodeURIComponent(
+                  //   itm.Name.replace(/[^a-zA-Z0-9 - _ . ~]/g, "").replace(
+                  //     / /g,
+                  //     "-"
+                  //   )
+                  // )}`}
                 >
                   <ListGroup.Item>{itm.Name}</ListGroup.Item>
-                </a>
+                </Link>
               </>
             );
           })}
