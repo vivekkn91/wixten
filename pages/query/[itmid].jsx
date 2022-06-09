@@ -12,34 +12,36 @@ import Head from "next/head";
 
 function Query({ posts, answerPosts }) {
   const [Item, setItem] = useState([]);
+  const [id3, setid] = useState();
   const [Questions, setQuestions] = useState();
   const router = useRouter();
   const baseurl = "http://localhost:3001/";
 
   //  const router = useRouter();
-
+  // posts
   const { qst } = router.query;
   var id = router.query.itmid;
   var gotid = id;
-  // console.log(id);
+  console.log(qst);
   function question(e) {
     setQuestions(e.target.value);
     // this.setState({ ask: e.target.value });
   }
 
   function clickQuestion() {
-    axios
-      .post("https://askover.wixten.com/answerpost", {
-        Answers: Questions,
+    console.log(query.id1);
+    // axios
+    //   .post("https://askover.wixten.com/answerpost", {
+    //     Answers: Questions,
 
-        correctcount: 0,
-        wrongcount: 0,
+    //     correctcount: 0,
+    //     wrongcount: 0,
 
-        question_id: gotid,
-      })
-      .then(() => {
-        window.location.reload();
-      });
+    //     question_id: gotid,
+    //   })
+    //   .then(() => {
+    //     // window.location.reload();
+    //   });
   }
   // useEffect(() => {
   //   if (id != null) {
@@ -127,7 +129,8 @@ function Query({ posts, answerPosts }) {
           <Button
             type="submit"
             // disabled={!this.state.ask}
-            onClick={clickQuestion}
+            onClick={() => clickQuestion}
+            // onClick={clickQuestion}
             variant="outline-secondary"
             id="button-addon2"
           >
@@ -152,6 +155,7 @@ export async function getServerSideProps(ctx) {
   // Call an external API endpoint to get posts.
   // const router = useRouter();
   var id1 = ctx.query;
+  setid(id1);
   // You can use any data fetching library
   const queryRequest = fetch("https://askover.wixten.com/questone/" + id1).then(
     async (res) => await res.json()
@@ -170,6 +174,7 @@ export async function getServerSideProps(ctx) {
   // will receive `posts` as a prop at build time
   return {
     props: {
+      id1,
       posts,
       answerPosts,
     },

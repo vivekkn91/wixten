@@ -19,7 +19,7 @@ function Query({ posts, answerPosts }) {
   const { qst } = router.query;
   var id = router.query;
   var gotid = qst;
-  // console.log(posts);
+  // console.log(posts[0]._id);
   function question(e) {
     setQuestions(e.target.value);
   }
@@ -32,7 +32,7 @@ function Query({ posts, answerPosts }) {
         correctcount: 0,
         wrongcount: 0,
 
-        question_id: gotid,
+        question_id: posts[0]._id,
       })
       .then(() => {
         window.location.reload();
@@ -133,6 +133,7 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
+      id1,
       posts,
       answerPosts,
     },
