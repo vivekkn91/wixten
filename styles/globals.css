@@ -138,6 +138,12 @@ a {
   display: none !important;
 }
 
+.list-group-item + .list-group-item {
+  border-bottom: 1px solid #7a7a7a;
+  /* text-align: start; */
+  word-wrap: break-word;
+}
+
 .logomain {
   margin: auto !important;
 }
