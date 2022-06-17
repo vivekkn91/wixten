@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Navbar from "react-bootstrap/Navbar";
-
+import logo from "../pages/images/wixten.png";
 import React from "react";
 import ReactDOM from "react-dom";
 // import { firebase } from "./firebase";
@@ -22,6 +22,7 @@ export default function index() {
     <div className="App">
       <Navbar bg="primary" variant="dark">
         <Container>
+          <Image src={logo} alt="wixten logo" width="50px" height="50px" />
           <Link href="/" passHref>
             <Navbar.Brand to="/" title="www.wixten.com">
               <h1 className="logomain">wixten</h1>
