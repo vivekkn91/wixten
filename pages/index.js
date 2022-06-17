@@ -49,7 +49,9 @@ function Home({ data }) {
   return (
     <>
       <Head>
-        <title>wixten </title>
+        <title>
+          wixten || a simple and alternative question and answer platform{" "}
+        </title>
         <meta charset="utf-8" />
         <meta
           name="google-site-verification"

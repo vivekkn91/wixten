@@ -76,7 +76,7 @@ function Query({ posts, answerPosts }) {
                 <meta charSet="utf-8" />
                 <meta
                   name="keywords"
-                  content="wixten, ott release, ott release date,aot season 4 part 2,MCU,MARVEL,marvel,doctor strange,spiderman,avatar 2, avatar 2 trailer , ott release"
+                  content="wixten, wixten.com,quora,answer,question,ott release, ott release date,aot season 4 part 2,MCU,MARVEL,marvel,doctor strange,spiderman,avatar 2, avatar 2 trailer , ott release quera"
                 ></meta>
                 <meta property="og:title" content={itm.Name} />
                 <meta property="og:description" content={itm.Summary} />
