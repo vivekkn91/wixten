@@ -50,7 +50,7 @@ function Home({ data }) {
     <>
       <Head>
         <title>
-          wixten || a simple and alternative question and answer platform{" "}
+          Wixten | A simple and alternative question and answer platform
         </title>
         <meta charset="utf-8" />
         <meta
@@ -65,7 +65,7 @@ function Home({ data }) {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta
           name="description"
-          content="have all ur doubts cleared here at wixten . At wixten ask any thing you want and anyone in the world can see your questin and will be able to answer it "
+          content="Have all ur doubts cleared here at wixten . At wixten ask any thing you want and anyone in the world can see your questin and will be able to answer it "
         />
       </Head>
       <Navigation />
